@@ -8,12 +8,13 @@ import io
 app = FastAPI()
 
 origins = [
-    "http://localhost:4200",                # Geliştirme ortamı
-    "https://hasanbarisgok.com",              # Üretim ortamı (hasanbarisgok.com)
+    "http://localhost:4200",          # Geliştirme ortamı
+    "https://hasanbarisgok.com",        # Üretim ortamı (www olmadan)
+    "https://www.hasanbarisgok.com",    # Üretim ortamı (www ile)
 ]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # İzin verilen origin'ler
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
