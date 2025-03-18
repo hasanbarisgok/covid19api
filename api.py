@@ -4,6 +4,8 @@ import numpy as np
 from PIL import Image
 import onnxruntime as ort
 import io
+import os  
+
 
 app = FastAPI()
 
@@ -66,4 +68,8 @@ async def predict(file: UploadFile = File(...)):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(
+        app,
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8000))  # Use Heroku's assigned port
+    )
