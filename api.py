@@ -4,7 +4,6 @@ import numpy as np
 from PIL import Image
 import onnxruntime as ort
 import io
-from mangum import Mangum  # Sunucusuz fonksiyon adaptörü
 
 app = FastAPI()
 
@@ -15,7 +14,7 @@ origins = [
 ]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # Gerekirse ["*"] kullanabilirsiniz
+    allow_origins=origins,  # veya ["*"] kullanabilirsiniz
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -32,7 +31,7 @@ def preprocess_image(image_bytes: bytes):
     img = Image.open(io.BytesIO(image_bytes)).convert('L')
     # 224x224 boyutuna getir
     img = img.resize((224, 224))
-    # Numpy array'e çevir
+    # Numpy array'e çevir (normalizasyon yok)
     img_array = np.array(img).astype(np.float32)
     # ONNX modelinin beklediği formata getir (NCHW: Batch x Channels x Height x Width)
     img_array = img_array.reshape(1, 1, 224, 224)
@@ -44,12 +43,13 @@ async def predict(file: UploadFile = File(...)):
     if file.content_type not in ["image/jpeg", "image/png"]:
         raise HTTPException(status_code=400, detail="Desteklenmeyen dosya türü. Lütfen JPEG veya PNG kullanın.")
     
-    # Dosyayı oku ve işle
+    # Dosyayı oku
     image_bytes = await file.read()
     input_image = preprocess_image(image_bytes)
     
-    # Modelin giriş adını al ve tahmin yap
+    # Modelin giriş adını al
     input_name = ort_session.get_inputs()[0].name
+    # Tahmin yap
     outputs = ort_session.run(None, {input_name: input_image})
     probabilities = outputs[0][0]
     
@@ -64,5 +64,6 @@ async def predict(file: UploadFile = File(...)):
         "probabilities": {cls: float(prob) for cls, prob in zip(class_names, probabilities)}
     }
 
-# Sunucusuz ortam için handler oluştur
-handler = Mangum(app)
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

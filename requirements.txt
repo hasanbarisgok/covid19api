@@ -1,6 +1,5 @@
 fastapi
 uvicorn
 onnxruntime
-pillow
 numpy
-mangum
+pillow
