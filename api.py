@@ -7,14 +7,13 @@ import io
 
 app = FastAPI()
 
-# CORS ayarları
 origins = [
-    "http://localhost:4200",  # Angular geliştirme sunucusu
-    "https://your-angular-app-domain.com",  # Üretim domaini
+    "http://localhost:4200",                # Geliştirme ortamı
+    "https://hasanbarisgok.com",              # Üretim ortamı (hasanbarisgok.com)
 ]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,  # veya ["*"] kullanabilirsiniz
+    allow_origins=origins,  # İzin verilen origin'ler
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
