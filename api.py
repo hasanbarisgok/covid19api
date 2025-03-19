@@ -9,15 +9,10 @@ import os
 
 app = FastAPI()
 
-origins = [
-    "http://localhost:4200",          # Geliştirme ortamı
-    "https://hasanbarisgok.com",        # Üretim ortamı (www olmadan)
-    "https://www.hasanbarisgok.com",    # Üretim ortamı (www ile)
-]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],          # Tüm domainlere izin ver
-    allow_credentials=False,      # Credentials kullanılmıyorsa False yapabilirsiniz
+    allow_origins=["*"],         # Tüm domainlere izin ver
+    allow_credentials=False,     # Credentials gerekmiyorsa bu şekilde kullanabilirsiniz
     allow_methods=["*"],
     allow_headers=["*"],
 )
