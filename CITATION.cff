@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+title: "COVID-19 Chest X-Ray Classification API (ONNX + FastAPI)"
+type: software
+version: 1.0.0
+date-released: 2026-01-03
+
+authors:
+  - family-names: "GÖK"
+    given-names: "Hasan Barış"
+    orcid: "https://orcid.org/0009-0005-7344-1151"
+  - family-names: "VELİOĞLU"
+    given-names: "Ahmet Nihat"
+
+repository-code: "https://github.com/hasanbarisgok/covid19api"
+
+keywords:
+  - COVID-19
+  - chest x-ray
+  - CXR
+  - pneumonia
+  - medical imaging
+  - CNN
+  - ONNX
+  - FastAPI
+  - ONNX Runtime
+  - MatLab to ONNX
+
+license: "MIT"
