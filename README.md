@@ -238,14 +238,15 @@ If you do not want reuse, consider “All rights reserved”.
 
 ## Contributors & Roles
 
-This project was developed collaboratively. Roles are summarized below for transparency:
+This project was developed collaboratively. Roles are summarized below for transparency.
 
-- **Hasan Barış GÖK**
-   - Supported the **model export handoff** used for ONNX deployment (model artifact provided)
-  - Built the **FastAPI inference service** (endpoints, request/response schema)
-  - Implemented **ONNX Runtime integration** and **image preprocessing** pipeline
-  - Managed **deployment configuration** (e.g., Procfile/runtime) and overall repository structure
-  - Prepared documentation (README, provenance notes)
+### Hasan Barış GÖK (Primary contributor)
+- Built the **FastAPI inference service** (endpoints, request/response schema)
+- Implemented **ONNX Runtime integration** and the **image preprocessing pipeline**
+- Managed **deployment configuration** (e.g., `Procfile`, `runtime.txt`) and overall repository structure
+- Supported the **model export handoff** used for ONNX deployment (model artifact provided)
+- Prepared documentation (README, provenance notes)
 
-- **Ahmet Nihat VELİOĞLU**
-  - Developed/trained the **MATLAB model** (CNN training workflow)
+### Ahmet Nihat VELİOĞLU
+- Developed/trained the **MATLAB model** (CNN training workflow)
+
