@@ -1,5 +1,6 @@
 # COVID-19 & Pneumonia Detection from Chest X-Ray (CXR)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18139090.svg)](https://doi.org/10.5281/zenodo.18139090)
+[![DOI](https://zenodo.org/badge/950923062.svg)](https://doi.org/10.5281/zenodo.18139089)
+
 
 
 **End-to-End Medical AI System — MATLAB (Training) → ONNX (Interoperability) → FastAPI (Serving) → Cloud Deployment**
