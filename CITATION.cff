@@ -5,8 +5,13 @@ type: software
 version: 1.0.0
 date-released: 2026-01-03
 
+abstract: >
+  Initial development (private) was completed on 2025-03-19.
+  Public release and documentation packaging were completed on 2026-01-03.
+  The MATLAB training workflow was developed by Ahmet Nihat VELİOĞLU; deployment/inference-serving and documentation were developed by Hasan Barış GÖK.
+
 authors:
-  - family-names: "GÖK"
+  - family-names: "Gök"
     given-names: "Hasan Barış"
     orcid: "https://orcid.org/0009-0005-7344-1151"
   - family-names: "VELİOĞLU"
@@ -24,6 +29,7 @@ keywords:
   - ONNX
   - FastAPI
   - ONNX Runtime
-  - MatLab to ONNX
+  - MATLAB
+  - MATLAB to ONNX
 
 license: "MIT"
